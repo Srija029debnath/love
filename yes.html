@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Quotes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            background-image: url('usss.jpg'); 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .quote-container {
+            position: relative;
+            z-index: 2;
+            max-width: 90%;
+            text-align: center;
+            padding: 20px;
+            background: rgba(189, 93, 93, 0.15);
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .quote-container h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffcccc;
+        }
+
+        .quote {
+            font-size: 1.3em;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: 0;
+            font-size: 1.5em;
+            color: #ff6699;
+            animation: floatUp 7s linear infinite;
+            opacity: 0;
+        }
+
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        
+        @media (max-width: 768px) {
+            .quote-container h1 {
+                font-size: 1.5em;
+            }
+
+            .quote {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quote-container h1 {
+                font-size: 1.3em;
+            }
+
+            .quote {
+                font-size: 1em;
+            }
+
+            .quote-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="quote-container">
+        <h1>Heartfelt Quotes</h1>
+        <div class="quote">
+           My Dearest Love,<br>
+
+            From the moment we met, I knew there was something incredibly special about you. You are not just my boyfriend; you are my soulmate, the missing piece of my heart. With you, I feel an indescribable connection that transcends words—a bond that goes beyond time and space.
+            
+            You fill my days with laughter and my nights with dreams of our future together. Your love inspires me to be the best version of myself, and I am endlessly grateful for every moment we share. You are my rock, my confidant, and my greatest adventure.
+            
+            In your eyes, I see my forever; in your smile, I find my joy. You are my one and only love, the person I want to build a life with, filled with love, happiness, and endless memories. Together, we create a beautiful tapestry of love, woven with trust, respect, and understanding.
+            
+            Thank you for being you—kind, loving, and perfectly imperfect. I love you more than words can express, and I will cherish you always, through every challenge and joy that life brings our way.
+            <br>
+            Forever yours,<br>
+            Srija
+        </div>
+    </div>
+
+    <div class="floating-hearts" id="heartsContainer"></div>
+
+    <script>
+        
+        function createHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.textContent = '❤️';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                heart.style.fontSize = `${Math.random() * 2 + 1}em`;
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
